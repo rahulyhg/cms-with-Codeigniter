@@ -14,7 +14,7 @@ class c_verificacionRegister extends CI_Controller {
     $this->load->library('form_validation');
 
     $this->form_validation->set_rules('name_user', 'User', 'trim|required|is_unique[cms_user.user]');
-    $this->form_validation->set_rules('email_user', 'Email', 'trim|required|is_unique[cms_user.email]');
+    $this->form_validation->set_rules('email_user', 'Email', 'trim|min_length[5]|valid_email|required|is_unique[cms_user.email]');
     $this->form_validation->set_rules('password_user', 'Password', 'trim|required|min_length[5]');
     $this->form_validation->set_message('is_unique', 'El %s ya está existe.');
     // Si la validacion del formulario es TRUE
